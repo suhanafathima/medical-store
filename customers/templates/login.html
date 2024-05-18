@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+   <style>
+    h1{
+        position: absolute;
+        left: 400px;
+        top: 100px;
+    }
+    body{
+        background-image: url("{% static 'fk1.webp' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 90vh;
+        min-height: 100px;
+        background-position: center;
+    }
+    form{
+        position: absolute;
+        top: 200px;
+        left: 400px;
+    }
+    button[type='submit']{
+        position: absolute;
+        left: 100px;
+        top: 100px;
+        padding: 10px;    
+    }
+   </style>
+</head>
+<body>
+  <h1>Login</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit"class = "badge badge-dark">Login</button>
+  </form>
+  </body>
+  </html>

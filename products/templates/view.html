@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+</head>
+   <style>
+    h3{
+        position: absolute;
+        left: 500px;
+        top: 0px;
+    }
+    body{
+        background-image: url("{% static 'fk1.webp' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 90vh;
+        min-height: 100px;
+        background-position: center;
+    }
+    table{
+        position: absolute;
+        top: 50px;
+        left: 400px;
+    }
+   </style>
+</head>
+<body>
+    <a href="{% url 'home2' %}">BACK</a>
+<h3>Retrieve Products</h3>
+<table border="1">
+    <tr><th>ID</th>
+        <th>medicine_name</th>
+        <th>quantity_in_stock</th>
+        <th>Price</th>
+        <th colspan="2" style="text-align:center;">Actions</th></tr>
+        {%for products in product_list%}
+    <tr>
+    <td>{{products.id}}</td>
+    <td>{{ products.medicine_name }} </td> 
+    <td>{{products.quantity_in_stock}}</td>
+    <td>{{ products.price }}</td>
+    <td ><a href="{%url 'updateproduct' products.id %}" class="btn btn-success" value="edit" type="submit">Edit</a></td>
+    <td><a href="{%url 'deleteproduct' products.id %}" class="btn btn-success" value="edit" type="submit">Delete</a></td></tr>
+     {% endfor %}
+    </table> 
+    
+</body>
+</html>
+

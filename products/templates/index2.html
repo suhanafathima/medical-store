@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+</head>
+   <style>
+     h1{
+        position: absolute;
+        left: 450px;
+        top: 50px;
+     }
+    body{
+        background-image: url("{% static 'fk3.avif' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 90vh;
+        min-height: 100px;
+        background-position: center;
+    }
+    nav{
+    position: absolute;
+    top: 150px;
+    left: 550px;
+    margin-top: 30px;
+    min-height: 300px;
+    margin-right: 60px;
+    font-size: 30px;
+    }
+    nav a{
+        display: block; 
+        text-decoration: none;
+    color: black;
+    padding: 1px 5px;
+    border: 5px solid transparent;
+    transition: 0.5 ;
+    }
+
+    nav a:hover{
+        background-color: white;
+    color: black;
+    }
+    .red{
+        position: absolute;
+        top: 0px;
+        left: 100px;
+        font-size: 30px;
+    }
+    .yellow{
+        position: absolute;
+        top: 0px;
+        left: 1000px;
+        font-size: 30px;
+    }
+
+    
+   </style>
+</head>
+<body>  
+    <h1>MEDICAL STORE APP</h1>
+<nav>
+
+    <a href="{% url 'createproduct' %}"> <i class="fa fa-bars">ADD</i></a>
+    <a href="{% url 'viewproduct' %}"> <i class="fa fa-bars">VIEW</i></a>
+    <a href="{% url 'page_list' %}"> <i class="fa fa-bars">Listing Medicines</i></a>
+    <a href="{% url 'search_medicine' %}"> <i class="fa fa-bars">Search Medicines</i></a>
+</nav>
+
+<nav class="red">
+     <a href="{% url 'home' %}">HOME</a>
+</nav>
+<nav class="yellow">
+     <a href="{% url 'logout' %}">LOGOUT</a>
+</nav>
+</body>
+</html>

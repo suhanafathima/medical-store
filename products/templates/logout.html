@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+   <style>
+    h1{
+        position: absolute;
+        left: 400px;
+        top: 100px;
+    }
+    body{
+        background-image: url("{% static 'fk1.webp' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 90vh;
+        min-height: 100px;
+        background-position: center;
+    }
+    form{
+        position: absolute;
+        top: 300px;
+        left: 650px;
+       
+    }
+    p{
+        position: absolute;
+        top: 200px;
+        left: 500px;
+        font-size: 20px;
+    }
+    
+   </style>
+</head>
+<body>
+  <a href="{% url 'home2' %}">BACK</a>
+  {% if user.is_authenticated %}
+    <p>You are currently logged in as {{ user.username }}.</p>
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit">Log Out</button>
+    </form>
+  {% else %}
+    <p>You are not currently logged in.</p>
+  {% endif %}
+</body>
+</html>

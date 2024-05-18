@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+   <style>
+     h1{
+        position: absolute;
+        left: 450px;
+        top: 50px;
+     }
+    body{
+        background-image: url("{% static 'fk3.avif' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 90vh;
+        min-height: 100px;
+        background-position: center;
+    }
+    nav{
+    position: absolute;
+    top: 200px;
+    left: 550px;
+    margin-top: 30px;
+    min-height: 300px;
+    margin-right: 60px;
+    font-size: 30px;
+    }
+    nav a{
+        display: block; 
+        text-decoration: none;
+    color: black;
+    padding: 1px 5px;
+    border: 5px solid transparent;
+    transition: 0.5 ;
+    }
+
+    nav a:hover{
+        background-color: white;
+    color: black;
+    }
+
+    
+   </style>
+</head>
+<body>  
+    <h1>MEDICAL STORE APP</h1>
+  <nav>
+
+    <a href="{% url 'login' %}">LogIn</a>
+    <a href="{% url 'signup' %}">Signup</a>
+    <a href="{% url 'viewproduct' %}">View</a>
+   
+</nav>

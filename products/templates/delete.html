@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+   <style>
+    h1{
+        position: absolute;
+        left: 400px;
+        top: 100px;
+    }
+    body{
+        background-image: url("{% static 'fk1.webp' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 90vh;
+        min-height: 100px;
+        background-position: center;
+    }
+    form{
+        position: absolute;
+        top: 200px;
+        left: 400px;
+    }
+    input[type='submit']{
+        position: absolute;
+        left: 100px;
+        top: 70px;
+    }
+    p{
+        font-size: 20px;
+    }
+   </style>
+</head>
+<body>
+    <a href="{% url 'viewproduct' %}">BACK</a>
+<form method="post" action="">
+    {% csrf_token %}
+    <p>Are you sure you want to delete "{{product.medicine_name}}"?</p>
+    <input type="submit" value="Confirm">
+</form>
+</body>
+</html>

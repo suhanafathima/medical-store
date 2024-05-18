@@ -1,0 +1,58 @@
+<!-- medicine/templates/medicine/search_medicine.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Medicines</title>
+    
+    <style>
+    h1{
+        position: absolute;
+        left: 400px;
+        top: 0px;
+    }
+    body{
+        background-image: url("{% static 'fk1.webp' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 150vh;
+        min-height: 100px;
+        background-position: center;
+    }
+    form{
+        position: absolute;
+        left: 400px;
+        top: 100px;
+    }
+    ul {
+        position: absolute;
+        left: 450px;
+        top: 120px;
+    }
+    </style>
+</head>
+<body>
+    <a href="{% url 'home2' %}">BACK</a>
+    <h1>Search Medicines</h1>
+    <form method="get" action="{% url 'search_medicine' %}">
+        <label for="search">Search:</label>
+        <input type="text" id="search" name="q" value="{{ request.GET.q }}">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if medicines %}
+        <ul>
+            {% for medicine in medicines %}
+                <li>{{ medicine.medicine_name }}</li>
+                <!-- <li>{{medicine.quantity_in_stock}}</li>
+                <li>{{medicine.price}}</li> -->
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No medicines found.</p>
+    {% endif %}
+</body>
+</html>
